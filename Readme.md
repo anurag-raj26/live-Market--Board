@@ -1,5 +1,6 @@
 #📈 Live Market Board 
 
+
 -An advanced real-time crypto dashboard built with HTML, CSS and vanilla JavaScript. It uses the free CoinGecko API (no key needed) and draws every chart by hand on <canvas>. No frameworks, no libraries, no build step.
 
 ##✨ Features
