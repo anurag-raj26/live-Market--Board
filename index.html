@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Live Market Board</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Live market board</h1>
+  <div class="ctrl">
+    <span class="live" id="live"><span class="dot"></span><span id="status">Loading</span></span>
+    <select id="coin" aria-label="Coin"></select>
+    <select id="range" aria-label="Time range">
+      <option value="1">1D</option><option value="7">7D</option><option value="30">30D</option><option value="90">90D</option>
+    </select>
+    <select id="cur" aria-label="Currency">
+      <option value="usd">USD</option><option value="inr">INR</option><option value="eur">EUR</option>
+    </select>
+    <select id="speed" aria-label="Refresh interval">
+      <option value="20000">20 s</option><option value="30000">30 s</option><option value="60000">60 s</option>
+    </select>
+    <button id="toggle">Pause</button>
+    <button id="theme">Switch theme</button>
+  </div>
+</header>
+
+<main class="grid">
+  <div class="stats">
+    <section class="card"><div class="top"><h2>Top 10 market cap</h2></div><div class="val" id="s-cap">–</div></section>
+    <section class="card"><div class="top"><h2>Top 10 24h volume</h2></div><div class="val" id="s-vol">–</div></section>
+    <section class="card"><div class="top"><h2>Top gainer (24h)</h2></div><div class="val" id="s-gain">–</div></section>
+  </div>
+  <section class="card wide">
+    <div class="top"><h2 id="t-line">Price</h2><div class="val" id="v-line">–</div></div>
+    <div class="chart-tools">
+      <button id="sma" aria-pressed="false" title="20-point simple moving average">SMA 20</button>
+      <button id="csv">Export CSV</button>
+      <span class="alert"><input id="alertPrice" type="number" step="any" min="0" placeholder="Alert price" aria-label="Alert price"><button id="alertBtn">Set alert</button></span>
+      <span id="alertInfo" class="muted">No alert set</span>
+    </div>
+    <canvas id="line" aria-label="Price chart, hover or touch for details"></canvas>
+  </section>
+  <section class="card">
+    <div class="top"><h2>24h trading volume (top 5)</h2></div>
+    <canvas id="bar"></canvas>
+  </section>
+  <section class="card">
+    <div class="top"><h2>Market share (top 5)</h2></div>
+    <canvas id="donut"></canvas>
+    <div class="legend" id="donut-legend"></div>
+  </section>
+  <section class="card wide">
+    <div class="top tools"><h2>Watchlist (click a coin to chart it)</h2>
+      <div class="row-tools"><button id="favOnly" aria-pressed="false">★ Favorites</button><input id="q" type="search" placeholder="Search coin" aria-label="Search coin"></div></div>
+    <div class="scroll"><table>
+      <thead><tr><th><button class="link" data-sort="rank">#</button></th><th>Coin</th><th class="r"><button class="link" data-sort="price">Price</button></th><th class="r"><button class="link" data-sort="chg">24h</button></th><th class="r hide"><button class="link" data-sort="cap">Market cap</button></th><th>7 days</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+  </section>
+</main>
+<footer id="updated">Loading live prices…</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
