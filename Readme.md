@@ -1,9 +1,9 @@
-📈 Live Market Board 
+#📈 Live Market Board 
 
-An advanced real-time crypto dashboard built with HTML, CSS and vanilla JavaScript. It uses the free CoinGecko API (no key needed) and draws every chart by hand on <canvas>. No frameworks, no libraries, no build step.
+-An advanced real-time crypto dashboard built with HTML, CSS and vanilla JavaScript. It uses the free CoinGecko API (no key needed) and draws every chart by hand on <canvas>. No frameworks, no libraries, no build step.
 
-✨ Features
-Pick any top-10 coin for the main price chart
+##✨ Features
+*Pick any top-10 coin for the main price chart
 Time ranges: 1D, 7D, 30D and 90D
 Currencies: USD, INR and EUR
 Hover / touch crosshair with an exact price and time tooltip
